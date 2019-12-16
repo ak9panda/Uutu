@@ -3,18 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D41F840F40B90768975FCB /* Pods_UutuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FD0FBA24FFC80A1DD4240C /* Pods_UutuTests.framework */; };
+		0AB3C82F8811A5D411ADD39D /* Pods_Uutu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6C7AB10963A67B5EF9AE7C /* Pods_Uutu.framework */; };
+		840ECDA523A76E0B006D1DC1 /* CityNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840ECDA423A76E0B006D1DC1 /* CityNameTableViewCell.swift */; };
+		840ECDA823A78CF2006D1DC1 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840ECDA723A78CF2006D1DC1 /* WeatherDetailViewController.swift */; };
 		8413914623A33CB800106910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413914523A33CB800106910 /* AppDelegate.swift */; };
 		8413914823A33CB800106910 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413914723A33CB800106910 /* SceneDelegate.swift */; };
-		8413914A23A33CB800106910 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413914923A33CB800106910 /* ViewController.swift */; };
+		8413914A23A33CB800106910 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413914923A33CB800106910 /* MainViewController.swift */; };
 		8413914D23A33CB800106910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8413914B23A33CB800106910 /* Main.storyboard */; };
 		8413914F23A33CBC00106910 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8413914E23A33CBC00106910 /* Assets.xcassets */; };
 		8413915223A33CBC00106910 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8413915023A33CBC00106910 /* LaunchScreen.storyboard */; };
 		8413915D23A33CBD00106910 /* UutuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413915C23A33CBD00106910 /* UutuTests.swift */; };
 		8413916823A33CBD00106910 /* UutuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413916723A33CBD00106910 /* UutuUITests.swift */; };
+		8413917A23A34DEF00106910 /* CityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413917923A34DEF00106910 /* CityWeather.swift */; };
+		8413917C23A350C200106910 /* weatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413917B23A350C200106910 /* weatherResponse.swift */; };
+		965803EE2CD7721B3811335D /* Pods_Uutu_UutuUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38279D191AE4C3AFD897368 /* Pods_Uutu_UutuUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830FB46884D72C3E7E005921 /* Pods-UutuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UutuTests.release.xcconfig"; path = "Target Support Files/Pods-UutuTests/Pods-UutuTests.release.xcconfig"; sourceTree = "<group>"; };
+		840ECDA423A76E0B006D1DC1 /* CityNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNameTableViewCell.swift; sourceTree = "<group>"; };
+		840ECDA723A78CF2006D1DC1 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		8413914223A33CB700106910 /* Uutu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uutu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8413914523A33CB800106910 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8413914723A33CB800106910 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8413914923A33CB800106910 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8413914923A33CB800106910 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8413914C23A33CB800106910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8413914E23A33CBC00106910 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8413915123A33CBC00106910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +59,16 @@
 		8413916323A33CBD00106910 /* UutuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UutuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8413916723A33CBD00106910 /* UutuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UutuUITests.swift; sourceTree = "<group>"; };
 		8413916923A33CBD00106910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8413917923A34DEF00106910 /* CityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeather.swift; sourceTree = "<group>"; };
+		8413917B23A350C200106910 /* weatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherResponse.swift; sourceTree = "<group>"; };
+		86FD0FBA24FFC80A1DD4240C /* Pods_UutuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UutuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A112BBA5420EE5296F34FBD /* Pods-Uutu-UutuUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uutu-UutuUITests.debug.xcconfig"; path = "Target Support Files/Pods-Uutu-UutuUITests/Pods-Uutu-UutuUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9696669AEFF2BA671741DA40 /* Pods-UutuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UutuTests.debug.xcconfig"; path = "Target Support Files/Pods-UutuTests/Pods-UutuTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B6C7AB10963A67B5EF9AE7C /* Pods_Uutu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uutu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA99CB8FC9CFCFCDD254FB57 /* Pods-Uutu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uutu.debug.xcconfig"; path = "Target Support Files/Pods-Uutu/Pods-Uutu.debug.xcconfig"; sourceTree = "<group>"; };
+		D9566900728B354814DF1023 /* Pods-Uutu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uutu.release.xcconfig"; path = "Target Support Files/Pods-Uutu/Pods-Uutu.release.xcconfig"; sourceTree = "<group>"; };
+		E38279D191AE4C3AFD897368 /* Pods_Uutu_UutuUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uutu_UutuUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB1EC8E6A72D9F555490596F /* Pods-Uutu-UutuUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uutu-UutuUITests.release.xcconfig"; path = "Target Support Files/Pods-Uutu-UutuUITests/Pods-Uutu-UutuUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB3C82F8811A5D411ADD39D /* Pods_Uutu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D41F840F40B90768975FCB /* Pods_UutuTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +92,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965803EE2CD7721B3811335D /* Pods_Uutu_UutuUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154FB730E01BFB5C9CF851FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C7AB10963A67B5EF9AE7C /* Pods_Uutu.framework */,
+				E38279D191AE4C3AFD897368 /* Pods_Uutu_UutuUITests.framework */,
+				86FD0FBA24FFC80A1DD4240C /* Pods_UutuTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840ECDA323A76DD7006D1DC1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				840ECDA423A76E0B006D1DC1 /* CityNameTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8413913923A33CB700106910 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +124,8 @@
 				8413915B23A33CBD00106910 /* UutuTests */,
 				8413916623A33CBD00106910 /* UutuUITests */,
 				8413914323A33CB700106910 /* Products */,
+				A6F2026ED3E672990A4E73C5 /* Pods */,
+				154FB730E01BFB5C9CF851FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +142,12 @@
 		8413914423A33CB800106910 /* Uutu */ = {
 			isa = PBXGroup;
 			children = (
+				8413917823A33F3900106910 /* Models */,
+				8413917723A33F2B00106910 /* Utils */,
+				8413917623A33F1800106910 /* Network */,
+				8413917523A33F0A00106910 /* Views */,
 				8413914523A33CB800106910 /* AppDelegate.swift */,
 				8413914723A33CB800106910 /* SceneDelegate.swift */,
-				8413914923A33CB800106910 /* ViewController.swift */,
 				8413914B23A33CB800106910 /* Main.storyboard */,
 				8413914E23A33CBC00106910 /* Assets.xcassets */,
 				8413915023A33CBC00106910 /* LaunchScreen.storyboard */,
@@ -128,6 +174,52 @@
 			path = UutuUITests;
 			sourceTree = "<group>";
 		};
+		8413917523A33F0A00106910 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				840ECDA323A76DD7006D1DC1 /* Cells */,
+				8413914923A33CB800106910 /* MainViewController.swift */,
+				840ECDA723A78CF2006D1DC1 /* WeatherDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8413917623A33F1800106910 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8413917B23A350C200106910 /* weatherResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8413917723A33F2B00106910 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8413917823A33F3900106910 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8413917923A34DEF00106910 /* CityWeather.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A6F2026ED3E672990A4E73C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA99CB8FC9CFCFCDD254FB57 /* Pods-Uutu.debug.xcconfig */,
+				D9566900728B354814DF1023 /* Pods-Uutu.release.xcconfig */,
+				8A112BBA5420EE5296F34FBD /* Pods-Uutu-UutuUITests.debug.xcconfig */,
+				EB1EC8E6A72D9F555490596F /* Pods-Uutu-UutuUITests.release.xcconfig */,
+				9696669AEFF2BA671741DA40 /* Pods-UutuTests.debug.xcconfig */,
+				830FB46884D72C3E7E005921 /* Pods-UutuTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +227,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8413916C23A33CBD00106910 /* Build configuration list for PBXNativeTarget "Uutu" */;
 			buildPhases = (
+				9F0A9471167B0EA5428ABB7C /* [CP] Check Pods Manifest.lock */,
 				8413913E23A33CB700106910 /* Sources */,
 				8413913F23A33CB700106910 /* Frameworks */,
 				8413914023A33CB700106910 /* Resources */,
+				C7F85FA0DABFD1E7F348B6AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8413916F23A33CBD00106910 /* Build configuration list for PBXNativeTarget "UutuTests" */;
 			buildPhases = (
+				8CECAAFECB4DA96E99CDBBB5 /* [CP] Check Pods Manifest.lock */,
 				8413915423A33CBD00106910 /* Sources */,
 				8413915523A33CBD00106910 /* Frameworks */,
 				8413915623A33CBD00106910 /* Resources */,
@@ -170,9 +265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8413917223A33CBD00106910 /* Build configuration list for PBXNativeTarget "UutuUITests" */;
 			buildPhases = (
+				BA55E4F75F067673A08ADA87 /* [CP] Check Pods Manifest.lock */,
 				8413915F23A33CBD00106910 /* Sources */,
 				8413916023A33CBD00106910 /* Frameworks */,
 				8413916123A33CBD00106910 /* Resources */,
+				A734CDD56D241388BEBBFAD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,14 +351,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8CECAAFECB4DA96E99CDBBB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UutuTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F0A9471167B0EA5428ABB7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Uutu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A734CDD56D241388BEBBFAD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uutu-UutuUITests/Pods-Uutu-UutuUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uutu-UutuUITests/Pods-Uutu-UutuUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Uutu-UutuUITests/Pods-Uutu-UutuUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA55E4F75F067673A08ADA87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Uutu-UutuUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7F85FA0DABFD1E7F348B6AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uutu/Pods-Uutu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uutu/Pods-Uutu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Uutu/Pods-Uutu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8413913E23A33CB700106910 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8413914A23A33CB800106910 /* ViewController.swift in Sources */,
+				8413914A23A33CB800106910 /* MainViewController.swift in Sources */,
+				8413917A23A34DEF00106910 /* CityWeather.swift in Sources */,
 				8413914623A33CB800106910 /* AppDelegate.swift in Sources */,
+				840ECDA823A78CF2006D1DC1 /* WeatherDetailViewController.swift in Sources */,
+				840ECDA523A76E0B006D1DC1 /* CityNameTableViewCell.swift in Sources */,
 				8413914823A33CB800106910 /* SceneDelegate.swift in Sources */,
+				8413917C23A350C200106910 /* weatherResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +636,7 @@
 		};
 		8413916D23A33CBD00106910 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA99CB8FC9CFCFCDD254FB57 /* Pods-Uutu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +655,7 @@
 		};
 		8413916E23A33CBD00106910 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9566900728B354814DF1023 /* Pods-Uutu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +674,7 @@
 		};
 		8413917023A33CBD00106910 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9696669AEFF2BA671741DA40 /* Pods-UutuTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +697,7 @@
 		};
 		8413917123A33CBD00106910 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 830FB46884D72C3E7E005921 /* Pods-UutuTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +720,7 @@
 		};
 		8413917323A33CBD00106910 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A112BBA5420EE5296F34FBD /* Pods-Uutu-UutuUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +741,7 @@
 		};
 		8413917423A33CBD00106910 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB1EC8E6A72D9F555490596F /* Pods-Uutu-UutuUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
