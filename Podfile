@@ -9,6 +9,7 @@ target 'Uutu' do
 pod 'RealmSwift'
 pod 'Alamofire', '= 5.0.0-rc.2'
 pod 'SwiftyJSON'
+pod 'SDWebImage', '~> 5.0'
 
   target 'UutuTests' do
     inherit! :search_paths

@@ -14,9 +14,8 @@ import SwiftyJSON
 struct weatherResponse {
     
     static func getWeatherWithLocation(latitude : Double, longitude : Double, completion : @escaping([CityWeather]?) -> Void) {
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/find") else { completion([CityWeather]()); return }
-        let apikey = "5e1f4878fc96b5799ba27958561aad33"
-        let params = ["lat": latitude, "lon": longitude, /*"cnt": 100.0,*/ "appid": apikey] as [String : Any]
+        guard let url = URL(string: "\(API.BASE_URL)/find") else { completion([CityWeather]()); return }
+        let params = ["lat": latitude, "lon": longitude, /*"cnt": 100.0,*/ "appid": API.KEY] as [String : Any]
         AF.request(url, parameters: params)
         .validate(statusCode: 200..<500)
         .responseJSON { response in
@@ -29,11 +28,24 @@ struct weatherResponse {
             case let .failure(error):
                 print(error)
             }
-//            (responseData) -> Void in
-//            let swiftyJsonVar = JSON(responseData.result)
-//            let cityWeather = translateJSON(data: swiftyJsonVar)
-//            completion(cityWeather)
         }.resume()
+    }
+    
+    static func getWeatherWithCityName(cityName : String, completion : @escaping([CityWeather]?) -> Void) {
+        guard let url = URL(string: "\(API.BASE_URL)/weather") else { completion([CityWeather]()); return }
+        let params = ["q": cityName]
+        AF.request(url, parameters: params)
+            .validate(statusCode: 200..<500)
+            .responseJSON { response in
+                switch response.result {
+                case .success(_):
+                    let jsonVar = try! JSON(data:response.data!)
+                    let weather = translateJSON(data: jsonVar)
+                    completion(weather)
+                case let .failure(error):
+                    print(error)
+                }
+        }
     }
     
     static func translateJSON (data : JSON) -> [CityWeather]? {
@@ -41,10 +53,16 @@ struct weatherResponse {
             var cityWeatherArray = [CityWeather]()
             for weather in jsonCities {
                 let city = CityWeather()
+                city.id = weather["id"].int ?? 0
                 city.cityName = weather["name"].string
-                city.temperature = weather["main"]["temp"].double ?? 0.0
+                city.weatherStatus = weather["weather"]["description"].string
+                city.weatherIcon = weather["weather"]["icon"].string
+                city.miniTemp = weather["main"]["temp_min"].double ?? 0.0
+                city.temperature = weather["main"]["feels_like"].double ?? 0.0
+                city.maxTemp = weather["main"]["temp_max"].double ?? 0.0
                 city.pressure = weather["main"]["pressure"].double ?? 0.0
                 city.humidity = weather["main"]["humidity"].double ?? 0.0
+                city.wind = weather["wind"]["speed"].int ?? 0
                 cityWeatherArray.append(city)
             }
             return cityWeatherArray

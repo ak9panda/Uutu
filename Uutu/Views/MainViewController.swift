@@ -64,7 +64,7 @@ extension MainViewController : UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? WeatherDetailViewController {
             if let indexPaths = cityTableView.indexPathForSelectedRow, indexPaths.count > 0 {
-                
+                viewController.id = cityWeather?[indexPaths.row].id ?? 0
             }
         }
     }
