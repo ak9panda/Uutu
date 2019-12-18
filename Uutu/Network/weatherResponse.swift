@@ -55,8 +55,9 @@ struct weatherResponse {
                 let city = CityWeather()
                 city.id = weather["id"].int ?? 0
                 city.cityName = weather["name"].string
-                city.weatherStatus = weather["weather"]["description"].string
-                city.weatherIcon = weather["weather"]["icon"].string
+                let weatherArray = weather["weather"]
+                city.weatherStatus = weatherArray[0]["description"].string
+                city.weatherIcon = weatherArray[0]["icon"].string
                 city.miniTemp = weather["main"]["temp_min"].double ?? 0.0
                 city.temperature = weather["main"]["feels_like"].double ?? 0.0
                 city.maxTemp = weather["main"]["temp_max"].double ?? 0.0

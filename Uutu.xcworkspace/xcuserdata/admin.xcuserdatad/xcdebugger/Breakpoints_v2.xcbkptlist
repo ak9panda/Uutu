@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8BD14CE6-EF46-4530-91CE-CCB3A3DC5290"
+            uuid = "A174BBED-01A2-4FBE-B196-2EA6816B2C4B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Uutu/Views/WeatherDetailViewController.swift"
+            filePath = "Uutu/Views/AddCityViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "bindDatatoView(data:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -56,6 +56,9 @@ extension MainViewController : UITableViewDataSource {
             return UITableViewCell()
         }
         cell.cityName = weather?.cityName
+        let intTemp = Int(weather?.temperature ?? 0.0)
+        let celcius = intTemp - 273
+        cell.cityTemp = String(celcius)
         return cell
     }
 }

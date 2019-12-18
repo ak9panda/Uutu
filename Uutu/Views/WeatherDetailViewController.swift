@@ -52,10 +52,11 @@ class WeatherDetailViewController: UIViewController {
     }
     
     fileprivate func bindDatatoView(data : CityWeather) {
-        lblCityName.text = data.cityName
+        lblCityName.text = data.cityName?.uppercased()
         lblDateTime.text = ""
-        lblWeatherStatus.text = data.weatherStatus
-        imgWeatherIcon.sd_setImage(with: URL(string: "http://openweathermap.org/img/wn/10d@2x.png"), placeholderImage: nil, options:  SDWebImageOptions.progressiveLoad, completed: nil)
+        lblWeatherStatus.text = data.weatherStatus?.capitalized
+        let imgUrl = "http://openweathermap.org/img/wn/\(data.weatherIcon ?? "10d")@2x.png"
+        imgWeatherIcon.sd_setImage(with: URL(string: imgUrl), placeholderImage: nil, options:  SDWebImageOptions.progressiveLoad, completed: nil)
         lblTemperature.text = "\(KelvinTemptoOtherUnit(temp: data.temperature, to: "C"))"
         lblminimumTemp.text = "\(KelvinTemptoOtherUnit(temp: data.miniTemp, to: "C")) °C"
         lblnormalTemp.text = "\(KelvinTemptoOtherUnit(temp: data.temperature, to: "C")) °C"

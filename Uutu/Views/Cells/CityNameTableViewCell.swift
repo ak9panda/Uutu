@@ -12,11 +12,20 @@ import Foundation
 class CityNameTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblCityName: UILabel!
+    @IBOutlet weak var lblCityTemp: UILabel!
     
     var cityName : String? {
         didSet{
             if let cityName = cityName {
                 lblCityName.text = cityName
+            }
+        }
+    }
+    
+    var cityTemp : String? {
+        didSet{
+            if let cityTemp = cityTemp {
+                lblCityTemp.text = "\(cityTemp) °C"
             }
         }
     }
