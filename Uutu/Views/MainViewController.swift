@@ -17,10 +17,28 @@ class MainViewController: UIViewController {
     
     var cityWeather : Results<CityWeather>?
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:#selector(handleRefresh(_:)),for: .valueChanged)
+        refreshControl.tintColor = UIColor.blue
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.activityStartAnimating()
         initView()
+        cityTableView.addSubview(refreshControl)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    @objc func handleRefresh(_ refreshControl : UIRefreshControl) {
+        cityTableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func initView() {
@@ -29,7 +47,9 @@ class MainViewController: UIViewController {
             fetchWeather()
         }else{
             self.cityWeather = cityWeather
+            cityTableView.reloadData()
         }
+        self.view.activityStopAnimating()
     }
     
     fileprivate func fetchWeather() {
@@ -69,6 +89,15 @@ extension MainViewController : UITableViewDelegate {
             if let indexPaths = cityTableView.indexPathForSelectedRow, indexPaths.count > 0 {
                 viewController.id = cityWeather?[indexPaths.row].id ?? 0
             }
+        }
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let weather = cityWeather![indexPath.row]
+            try! realm.write {
+                realm.delete(weather)
+            }
+            cityTableView.reloadData()
         }
     }
 }

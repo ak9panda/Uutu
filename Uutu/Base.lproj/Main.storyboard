@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CityNameTableViewCell" rowHeight="70" id="tap-3G-6Lf" customClass="CityNameTableViewCell" customModule="Uutu" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CityNameTableViewCell" rowHeight="70" id="tap-3G-6Lf" customClass="CityNameTableViewCell" customModule="Uutu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tap-3G-6Lf" id="RSJ-td-3fD">
@@ -114,9 +114,15 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5P9-hK-JSX">
                                 <rect key="frame" x="74" y="220" width="93.5" height="93.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5P9-hK-JSX" secondAttribute="height" id="nlI-cT-rk3"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77N-BZ-Tsd">
                                 <rect key="frame" x="187.5" y="224.5" width="88" height="84"/>
@@ -317,62 +323,32 @@
                                     <outlet property="delegate" destination="kPm-db-Fsc" id="3qx-ZK-R9W"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-rC-w8h">
-                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="3Qb-6Y-mWo" customClass="SearchCityTableViewCell" customModule="Uutu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Qb-6Y-mWo" id="ggu-sZ-jZe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43D-PW-be5">
-                                                    <rect key="frame" x="15" y="11" width="345" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="43D-PW-be5" firstAttribute="leading" secondItem="ggu-sZ-jZe" secondAttribute="leadingMargin" id="2kh-8D-ePA"/>
-                                                <constraint firstItem="43D-PW-be5" firstAttribute="top" secondItem="ggu-sZ-jZe" secondAttribute="topMargin" id="4GM-to-SHS"/>
-                                                <constraint firstItem="43D-PW-be5" firstAttribute="bottom" secondItem="ggu-sZ-jZe" secondAttribute="bottomMargin" id="ZaR-Dd-9t7"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="43D-PW-be5" secondAttribute="trailing" id="ggv-lg-HsK"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="lblCityName" destination="43D-PW-be5" id="umu-sV-I6g"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="kPm-db-Fsc" id="952-C7-TEO"/>
-                                    <outlet property="delegate" destination="kPm-db-Fsc" id="AI8-Uj-n7D"/>
-                                </connections>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evW-bO-kfF">
+                                <rect key="frame" x="30" y="66" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Hex-rC-w8h" firstAttribute="top" secondItem="sB8-Sh-K6z" secondAttribute="bottom" id="0iw-kp-0I1"/>
-                            <constraint firstItem="kTP-4J-0Wz" firstAttribute="bottom" secondItem="Hex-rC-w8h" secondAttribute="bottom" id="7xB-Jq-3gP"/>
                             <constraint firstItem="sB8-Sh-K6z" firstAttribute="trailing" secondItem="kTP-4J-0Wz" secondAttribute="trailing" id="95u-iw-Buz"/>
                             <constraint firstItem="sB8-Sh-K6z" firstAttribute="leading" secondItem="kTP-4J-0Wz" secondAttribute="leading" id="BBG-wk-4cs"/>
-                            <constraint firstItem="kTP-4J-0Wz" firstAttribute="trailing" secondItem="Hex-rC-w8h" secondAttribute="trailing" id="DNB-RG-g4Y"/>
+                            <constraint firstItem="kTP-4J-0Wz" firstAttribute="trailing" secondItem="evW-bO-kfF" secondAttribute="trailing" constant="30" id="Cz1-3b-nm9"/>
+                            <constraint firstItem="evW-bO-kfF" firstAttribute="leading" secondItem="kTP-4J-0Wz" secondAttribute="leading" constant="30" id="EMs-xK-yLc"/>
+                            <constraint firstItem="evW-bO-kfF" firstAttribute="top" secondItem="sB8-Sh-K6z" secondAttribute="bottom" constant="10" id="Phu-BM-G4m"/>
                             <constraint firstItem="sB8-Sh-K6z" firstAttribute="top" secondItem="kTP-4J-0Wz" secondAttribute="top" id="YNN-NX-n5l"/>
-                            <constraint firstItem="Hex-rC-w8h" firstAttribute="leading" secondItem="kTP-4J-0Wz" secondAttribute="leading" id="tgi-Oe-EJE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kTP-4J-0Wz"/>
                     </view>
                     <connections>
-                        <outlet property="cityNameTableView" destination="Hex-rC-w8h" id="3a3-hI-SJD"/>
+                        <outlet property="lblCityName" destination="evW-bO-kfF" id="BZz-qX-mzY"/>
                         <outlet property="searchController" destination="sB8-Sh-K6z" id="jXP-cg-rjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03w-An-GbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2094" y="432"/>
+            <point key="canvasLocation" x="2093.5999999999999" y="431.33433283358323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ca-wl-7wG">

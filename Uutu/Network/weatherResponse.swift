@@ -23,7 +23,7 @@ struct weatherResponse {
             case .success(_):
                 debugPrint("\(response.result)")
                 let jsonVar = try! JSON(data:response.data!)
-                let weather = translateJSON(data: jsonVar)
+                let weather = translateJSONList(data: jsonVar)
                 completion(weather)
             case let .failure(error):
                 print(error)
@@ -31,11 +31,11 @@ struct weatherResponse {
         }.resume()
     }
     
-    static func getWeatherWithCityName(cityName : String, completion : @escaping([CityWeather]?) -> Void) {
-        guard let url = URL(string: "\(API.BASE_URL)/weather") else { completion([CityWeather]()); return }
-        let params = ["q": cityName]
+    static func getWeatherWithCityName(cityName : String, completion : @escaping(CityWeather?) -> Void) {
+        guard let url = URL(string: "\(API.BASE_URL)/weather") else { completion(CityWeather()); return }
+        let params = ["q": cityName, "appid": API.KEY]
         AF.request(url, parameters: params)
-            .validate(statusCode: 200..<500)
+            .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(_):
@@ -45,10 +45,10 @@ struct weatherResponse {
                 case let .failure(error):
                     print(error)
                 }
-        }
+        }.resume()
     }
     
-    static func translateJSON (data : JSON) -> [CityWeather]? {
+    static func translateJSONList (data : JSON) -> [CityWeather]? {
         if let jsonCities = data["list"].array {
             var cityWeatherArray = [CityWeather]()
             for weather in jsonCities {
@@ -69,5 +69,27 @@ struct weatherResponse {
             return cityWeatherArray
         }
         return nil
+    }
+    
+    static func translateJSON(data: JSON) -> CityWeather? {
+        if(data["cod"] == 200){
+            let weather = CityWeather()
+            weather.id = data["id"].int ?? 0
+            weather.cityName = data["name"].string
+            let weatherArray = data["weather"]
+            weather.weatherStatus = weatherArray[0]["description"].string
+            weather.weatherIcon = weatherArray[0]["icon"].string
+            weather.miniTemp = data["main"]["temp_min"].double ?? 0.0
+            weather.temperature = data["main"]["feels_like"].double ?? 0.0
+            weather.maxTemp = data["main"]["temp_max"].double ?? 0.0
+            weather.pressure = data["main"]["pressure"].double ?? 0.0
+            weather.humidity = data["main"]["humidity"].double ?? 0.0
+            weather.wind = data["wind"]["speed"].int ?? 0
+            
+            return weather
+        }else{
+            print("failed to parse data")
+            return nil
+        }
     }
 }

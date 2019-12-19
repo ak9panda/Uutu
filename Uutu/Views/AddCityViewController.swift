@@ -12,15 +12,16 @@ import RealmSwift
 class AddCityViewController: UIViewController {
 
     @IBOutlet weak var searchController: UISearchBar!
-    @IBOutlet weak var cityNameTableView: UITableView!
+    @IBOutlet weak var lblCityName: UILabel!
     
-    var cityNames : [CityWeather]?
+    var cityName : CityWeather?
     
     var realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initView()
         // Do any additional setup after loading the view.
     }
     
@@ -30,51 +31,19 @@ class AddCityViewController: UIViewController {
     }
     
     fileprivate func initView() {
-        
+        lblCityName.isHidden = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddCityViewController.tapLabel))
+        lblCityName.isUserInteractionEnabled = true
+        lblCityName.addGestureRecognizer(tap)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-
-    // MARK: - TableView datasource and delegete
-
-extension AddCityViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cityNames?.count ?? 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let city = self.cityNames?[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCityTableViewCell.identifier, for: indexPath) as? SearchCityTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.cityName = city?.cityName
-        return cell
-    }
-}
-
-extension AddCityViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc func tapLabel(sender:UITapGestureRecognizer) {
         DispatchQueue.main.async {
-            let city = self.cityNames?[indexPath.row] ?? CityWeather()
-            CityWeather.storeWeather(weather: city, realm: self.realm)
+            CityWeather.storeWeather(weather: self.cityName ?? CityWeather(), realm: self.realm)
         }
         self.dismiss(animated: true, completion: nil)
     }
+
 }
 
     //MARK: - Search Controller Delegate
@@ -82,10 +51,11 @@ extension AddCityViewController: UITableViewDelegate {
 extension AddCityViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchCity = searchBar.text ?? ""
-        weatherResponse.getWeatherWithCityName(cityName: searchCity) { [weak self] cityNames in
-            if cityNames?.count ?? 0 > 0{
-                self?.cityNames = cityNames
-                self?.cityNameTableView.reloadData()
+        weatherResponse.getWeatherWithCityName(cityName: searchCity) { [weak self] cityName in
+            if cityName != nil{
+                self?.cityName = cityName
+                self?.lblCityName.isHidden = false
+                self?.lblCityName.text = cityName?.cityName
             }
         }
     }
