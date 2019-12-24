@@ -53,7 +53,7 @@ class WeatherDetailViewController: UIViewController {
     
     fileprivate func bindDatatoView(data : CityWeather) {
         lblCityName.text = data.cityName?.uppercased()
-        lblDateTime.text = ""
+        lblDateTime.text = data.dateTime
         lblWeatherStatus.text = data.weatherStatus?.capitalized
         let imgUrl = "http://openweathermap.org/img/wn/\(data.weatherIcon ?? "10d")@2x.png"
         imgWeatherIcon.sd_setImage(with: URL(string: imgUrl), placeholderImage: nil, options:  SDWebImageOptions.progressiveLoad, completed: nil)

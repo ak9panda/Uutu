@@ -20,6 +20,7 @@ import RealmSwift
     dynamic var pressure : Double = 0.0
     dynamic var humidity : Double =  0.0
     dynamic var wind : Int = 0
+    dynamic var dateTime : String?
     
     override static func primaryKey() -> String?{
         return "id"

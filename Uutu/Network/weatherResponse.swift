@@ -64,6 +64,15 @@ struct weatherResponse {
                 city.pressure = weather["main"]["pressure"].double ?? 0.0
                 city.humidity = weather["main"]["humidity"].double ?? 0.0
                 city.wind = weather["wind"]["speed"].int ?? 0
+                if let dt = weather["dt"].rawString() {
+                    let timeInterval = NumberFormatter().number(from: dt)!.doubleValue
+                    let date = Date(timeIntervalSince1970: timeInterval)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+                    dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+                    dateFormatter.timeZone = .current
+                    city.dateTime = dateFormatter.string(from: date)
+                }
                 cityWeatherArray.append(city)
             }
             return cityWeatherArray

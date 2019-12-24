@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var cityTableView: UITableView!
     
     var cityWeather : Results<CityWeather>?
+    var cityNames : [String] = []
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -37,6 +38,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func handleRefresh(_ refreshControl : UIRefreshControl) {
+        reloadWeather()
         cityTableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -45,6 +47,7 @@ class MainViewController: UIViewController {
         let cityWeather = realm.objects(CityWeather.self)
         if cityWeather.isEmpty {
             fetchWeather()
+            cityTableView.reloadData()
         }else{
             self.cityWeather = cityWeather
             cityTableView.reloadData()
@@ -58,6 +61,21 @@ class MainViewController: UIViewController {
                 CityWeather.storeWeather(weather: weather, realm: self!.realm)
             })
         }
+    }
+    
+    fileprivate func reloadWeather() {
+        cityWeather?.enumerated().forEach({ (i, weather) in
+            let name = weather.cityName
+            cityNames.append(name ?? "")
+        })
+        try! realm.write {
+            realm.delete(realm.objects(CityWeather.self))
+        }
+        cityNames.forEach({ name in
+            weatherResponse.getWeatherWithCityName(cityName: name) { [weak self] weather in
+                CityWeather.storeWeather(weather: weather!, realm: self!.realm)
+            }
+        })
     }
 }
 
