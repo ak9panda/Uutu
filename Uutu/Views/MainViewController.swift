@@ -29,7 +29,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.activityStartAnimating()
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        let label = UILabel()
+        label.textColor = UIColor.black
+        label.text = "Uutu"
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        navigationController?.navigationBar.barTintColor = UIColor.white
         initView()
+        self.cityTableView.separatorColor = .clear
         cityTableView.addSubview(refreshControl)
     }
     
@@ -64,7 +72,7 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func reloadWeather() {
-        cityWeather?.enumerated().forEach({ (i, weather) in
+        cityWeather?.forEach({ weather in
             let name = weather.cityName
             cityNames.append(name ?? "")
         })
@@ -102,6 +110,7 @@ extension MainViewController : UITableViewDataSource {
 }
 
 extension MainViewController : UITableViewDelegate {
+    // give data from nevigation segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? WeatherDetailViewController {
             if let indexPaths = cityTableView.indexPathForSelectedRow, indexPaths.count > 0 {
@@ -109,6 +118,22 @@ extension MainViewController : UITableViewDelegate {
             }
         }
     }
+    // add cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    // Add delete with defaut style
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let weather = cityWeather![indexPath.row]
